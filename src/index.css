@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 /*
 =============== 
 Variables
@@ -5,25 +7,22 @@ Variables
 */
 
 :root {
-  /* dark shades of primary color*/
-  --clr-primary-1: hsl(22, 28%, 21%);
-  --clr-primary-2: hsl(22, 28%, 29%);
-  --clr-primary-3: hsl(22, 28%, 37%);
-  --clr-primary-4: hsl(22, 28%, 45%);
-  /* primary/main color */
-  --clr-primary-5: hsl(22, 31%, 52%);
-  /* lighter shades of primary color */
-  --clr-primary-6: hsl(22, 31%, 60%);
-  --clr-primary-7: hsl(22, 31%, 67%);
-  --clr-primary-8: hsl(20, 31%, 74%);
-  --clr-primary-9: hsl(22, 31%, 81%);
-  --clr-primary-10: hsl(22, 31%, 88%);
+  --classic-blac: #1c1c1c;
+  --vampire-black: #0f0404;
+  --clr-blue: #528cd3;
+  --strong-yellow: #f7de3a;
+  --white-smoke: #fafaf8;
   --clr-white: #fff;
+  --clr-grey: #e2e2e0;
+  --clr-grey-2: #d5d5d4;
   --clr-red-dark: hsl(360, 67%, 44%);
   --clr-red-light: hsl(360, 71%, 66%);
   --clr-green-dark: hsl(125, 67%, 44%);
   --clr-green-light: hsl(125, 71%, 66%);
   --clr-black: #222;
+  /* fontes */
+  --primary-font: "Zen Tokyo Zoo";
+  --secondary-font: "Quicksand";
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
   --radius: 0.25rem;
@@ -52,6 +51,9 @@ body {
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
+  background-image: url("./assets/bg-1.jpg");
+  background-position: left;
+  background-size: cover;
 }
 ul {
   list-style-type: none;
@@ -92,6 +94,14 @@ p {
   margin-bottom: 1.25rem;
   color: var(--clr-grey-3);
 }
+.grow {
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1.1);
+}
+
 @media screen and (min-width: 800px) {
   h1 {
     font-size: 3rem;
@@ -123,6 +133,7 @@ p {
 /* section */
 .section {
   padding: 5rem 0;
+  display: flex;
 }
 .section-center {
   width: 90vw;
@@ -152,8 +163,75 @@ Loading
   animation: spinner 0.6s linear infinite;
 }
 
+.main-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+/* 
+============
+Button Style
+============
+*/
+
+.primary-btn,
+.primary-btn2 {
+  width: 300px;
+  height: 100px;
+  font-size: 30px;
+  text-align: center;
+  line-height: 100px;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 50px;
+  border-color: transparent;
+  background: linear-gradient(-45deg, #ffa63d, #ff3d77, #338aff, #3cf0c5);
+  background-size: 600%;
+  animation: anime 16s linear infinite;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(255, 166, 61, 0.2),
+    0 5px 15px rgba(255, 61, 119, 0.2), 0 5px 15px rgba(51, 138, 255, 0.2);
+}
+.btn2 {
+  position: absolute;
+  margin-top: -70px;
+  z-index: -1;
+  filter: blur(30px);
+  opacity: 0.8;
+}
+
+.primary-btn:hover,
+.primary-btn2:hover {
+  animation: anime2 12s ease infinite;
+}
+
+@keyframes anime {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes anime2 {
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  0% {
+    background-position: 0% 50%;
+  }
+}
+
 @media screen and (min-width: 992px) {
   .section-center {
-    width: 95vw;
+    width: 72vw;
+    height: 540px;
   }
 }

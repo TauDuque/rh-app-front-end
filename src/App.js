@@ -3,25 +3,30 @@ import { Home, NewWorker, SingleWorker, Workers } from "./pages";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Loading, Navbar, SideMenu } from "./components";
 
-function App() {
-  return (
-    <div className="App">
-      <Router>
+/* 
+
+<Router>
         <Switch>
-          <Route>
+          <Route exact path="/">
             <Home />
           </Route>
-          <Route>
+          <Route exact path="/newworker">
             <NewWorker />
           </Route>
-          <Route>
+          <Route exact path="singleworker">
             <SingleWorker />
           </Route>
-          <Route>
+          <Route exact path="workers">
             <Workers />
           </Route>
         </Switch>
       </Router>
+*/
+
+function App() {
+  return (
+    <div className="main-container">
+      <Home />
     </div>
   );
 }
