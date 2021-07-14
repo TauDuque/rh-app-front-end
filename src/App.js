@@ -1,7 +1,7 @@
 import React, { useEffect, useContext, useReducer } from "react";
 import { Home, NewWorker, SingleWorker, Workers } from "./pages";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { Loading, Navbar, SideMenu } from "./components";
+import { Loading, IconSideBar, SideMenu } from "./components";
 
 /* 
 
@@ -26,7 +26,8 @@ import { Loading, Navbar, SideMenu } from "./components";
 function App() {
   return (
     <div className="main-container">
-      <NewWorker />
+      <SideMenu />
+      <Workers />
     </div>
   );
 }

@@ -52,9 +52,10 @@ body {
   color: var(--clr-grey-1);
   line-height: 1.5;
   font-size: 0.875rem;
-  background-image: url("./assets/bg-1.jpg");
+  background-image: url("./assets/bg-2.jpg");
   background-position: left;
-  background-size: cover;
+  background-size: auto;
+  background-repeat: no-repeat;
 }
 ul {
   list-style-type: none;
@@ -168,15 +169,13 @@ Loading
 .main-container {
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: 55rem;
 }
 
 .center-att {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
-  width: 100%;
 }
 
 /* 
@@ -239,7 +238,31 @@ Button Style
   }
 }
 
+/* 
+==========
+form
+==========
+*/
+
+.form-container {
+  height: 590px;
+  width: 570px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  border-radius: 18px;
+  border: solid #afb1a9;
+  background-color: #efe7cc;
+  box-shadow: 2px 1px 75px 1px rgba(0, 0, 0, 0.54);
+}
+
 @media screen and (min-width: 992px) {
+  body {
+    background-image: url("./assets/bg-1.jpg");
+    background-position: left;
+    background-size: cover;
+  }
   .section-center {
     width: 72vw;
     height: 540px;
@@ -248,5 +271,24 @@ Button Style
   .primary-btn2 {
     width: 275px;
     height: 75px;
+  }
+  .main-container {
+    display: flex;
+    align-items: center;
+    height: 100vh;
+  }
+  .form-container {
+    height: 590px;
+    width: 570px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .center-att {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 54%;
   }
 }

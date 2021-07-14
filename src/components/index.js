@@ -1,5 +1,5 @@
 import Loading from "./Loading";
-import Navbar from "./Navbar";
+import IconSideBar from "./IconSideBar";
 import SideMenu from "./SideMenu";
 
-export { Loading, Navbar, SideMenu };
+export { Loading, IconSideBar, SideMenu };

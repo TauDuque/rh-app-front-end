@@ -21,8 +21,8 @@ const SideMenu = () => {
 };
 
 const Wrapper = styled.section`
-  height: 540px;
-  width: 300px;
+  height: 520px;
+  min-width: 300px;
   background-image: linear-gradient(
     289deg,
     var(--white-smoke) 32%,
@@ -34,6 +34,7 @@ const Wrapper = styled.section`
     0 14px 35px rgba(255, 61, 119, 0.14), 10px 6px 28px rgba(51, 138, 255, 0.15);
   padding-top: 40px;
   margin-left: 50px;
+
   display: flex;
   flex-direction: column;
 
