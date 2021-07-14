@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Zen+Tokyo+Zoo&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&family=Tourney&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Quicksand&display=swap");
 /*
 =============== 
@@ -7,7 +7,7 @@ Variables
 */
 
 :root {
-  --classic-blac: #1c1c1c;
+  --classic-black: #1c1c1c;
   --vampire-black: #0f0404;
   --clr-blue: #528cd3;
   --strong-yellow: #f7de3a;
@@ -21,8 +21,9 @@ Variables
   --clr-green-light: hsl(125, 71%, 66%);
   --clr-black: #222;
   /* fontes */
-  --primary-font: "Zen Tokyo Zoo";
+  --primary-font: "Tourney";
   --secondary-font: "Quicksand";
+  --third-font: "EB Garamond";
   --transition: all 0.3s linear;
   --spacing: 0.1rem;
   --radius: 0.25rem;
@@ -139,6 +140,7 @@ p {
   width: 90vw;
   margin: 0 auto;
   max-width: var(--max-width);
+  border-radius: 8px;
 }
 
 /*
@@ -177,11 +179,10 @@ Button Style
 
 .primary-btn,
 .primary-btn2 {
-  width: 300px;
-  height: 100px;
+  width: 245px;
+  height: 45px;
   font-size: 30px;
   text-align: center;
-  line-height: 100px;
   color: rgba(255, 255, 255, 0.9);
   border-radius: 50px;
   border-color: transparent;
@@ -189,8 +190,9 @@ Button Style
   background-size: 600%;
   animation: anime 16s linear infinite;
   cursor: pointer;
-  box-shadow: 0 5px 15px rgba(255, 166, 61, 0.2),
-    0 5px 15px rgba(255, 61, 119, 0.2), 0 5px 15px rgba(51, 138, 255, 0.2);
+  box-shadow: 0 10px 25px rgba(255, 166, 61, 0.79),
+    0 14px 35px rgba(255, 61, 119, 0.61),
+    10px 10px 32px rgba(51, 138, 255, 0.65);
 }
 .btn2 {
   position: absolute;
@@ -233,5 +235,10 @@ Button Style
   .section-center {
     width: 72vw;
     height: 540px;
+  }
+  .primary-btn,
+  .primary-btn2 {
+    width: 275px;
+    height: 75px;
   }
 }

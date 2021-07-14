@@ -5,7 +5,9 @@ const Home = () => {
   return (
     <Wrapper className="section section-center">
       <h2>Bem-Vindo</h2>
-      <button className="primary-btn primary-btn-2 grow"></button>
+      <div>
+        <button className="primary-btn primary-btn-2 grow">Acessar</button>
+      </div>
     </Wrapper>
   );
 };
@@ -22,6 +24,12 @@ const Wrapper = styled.section`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  h2 {
+    font-family: var(--primary-font);
+    color: var(--classic-black);
+  }
+  @media (min-width: 992px) {
+  }
 `;
 
 export default Home;
