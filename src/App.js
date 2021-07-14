@@ -26,7 +26,7 @@ import { Loading, Navbar, SideMenu } from "./components";
 function App() {
   return (
     <div className="main-container">
-      <SideMenu />
+      <NewWorker />
     </div>
   );
 }
