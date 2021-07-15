@@ -1,7 +1,23 @@
 import React, { useEffect, useContext, useReducer } from "react";
 import styled from "styled-components";
+import { useLocation } from "react-router";
+import { useGlobalContext } from "../context";
 
 const Starter = () => {
+  const location = useLocation();
+  const { hideExtra, showExtra } = useGlobalContext();
+  function menuHelper() {
+    if (location.pathname === "/starter") {
+      showExtra();
+    } else {
+      hideExtra();
+    }
+  }
+
+  useEffect(() => {
+    menuHelper();
+  }, []);
+
   return (
     <Wrapper>
       <h2>
