@@ -2,19 +2,28 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { Menu_icn } from "../assets";
+import { useGlobalContext } from "../context";
 
 const SideMenu = () => {
+  const { hideExtra } = useGlobalContext();
   return (
     <Wrapper>
       <div className="icon-img">
         <img src={Menu_icn} alt="icon" />
       </div>
-
       <ul>
-        <li>Cadastrar Novo Funcionário</li>
-        <li>Visualizar Cadastros</li>
-        <li>Visualizar Último Cadastro</li>
-        <li>Sair</li>
+        <Link to="/newworker" className="grow">
+          <li>Cadastrar Novo Funcionário</li>
+        </Link>
+        <Link to="/workers" className="grow">
+          <li>Visualizar Cadastros</li>
+        </Link>
+        <Link to="singleworker" className="grow">
+          <li>Visualizar Último Cadastro</li>
+        </Link>
+        <Link to="/" onClick={hideExtra} className="grow">
+          <li>Sair</li>
+        </Link>
       </ul>
     </Wrapper>
   );
@@ -33,8 +42,10 @@ const Wrapper = styled.section`
   box-shadow: 0 7px 19px rgba(255, 166, 61, 0.35),
     0 14px 35px rgba(255, 61, 119, 0.14), 10px 6px 28px rgba(51, 138, 255, 0.15);
   padding-top: 40px;
-  margin-left: 50px;
-
+  margin-left: 15px;
+  a {
+    color: var(--classic-black);
+  }
   display: flex;
   flex-direction: column;
 

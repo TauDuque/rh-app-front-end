@@ -292,9 +292,9 @@ const Wrapper = styled.section`
     margin-top: 5px;
     width: 200px;
     height: 45px;
-    box-shadow: 0 6px 20px rgba(255, 166, 61, 0.70),
-    0 10px 15px rgba(255, 61, 119, 0.43),
-    6px 5px 10px rgba(51, 138, 255, 0.49);
+    box-shadow: 0 6px 15px rgba(255, 166, 61, 0.39),
+    0 8px 12px rgba(255, 61, 119, 0.34),
+    6px 5px 10px rgba(51, 138, 255, 0.45);
     font-size: 20px;
 }
   }

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useEffect, useContext, useReducer } from "react";
 import styled from "styled-components";
 
-const Loading = () => {
+const Starter = () => {
   return (
     <Wrapper>
-      <div className="loading"></div>
+      <h2>
+        Utilize os menus laterais <br /> para a navegação...
+      </h2>
     </Wrapper>
   );
 };
@@ -16,7 +18,7 @@ const Wrapper = styled.section`
   width: 358px;
   top: 45px;
   left: 8px;
-
+  font-family: var(--secondary-font);
   @media (min-width: 992px) {
     position: static;
     height: 85%;
@@ -26,7 +28,9 @@ const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
   }
 `;
 
-export default Loading;
+export default Starter;

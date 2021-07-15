@@ -34,6 +34,7 @@ const Workers = () => {
 
 const Wrapper = styled.section`
   height: 100%;
+  border-radius: 2px;
   table {
     width: 100%;
   }
