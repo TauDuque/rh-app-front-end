@@ -1,8 +1,46 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import styled from "styled-components";
+import { useParams, useHistory, Link } from "react-router-dom";
 import { SglWorker_icn } from "../assets";
+import { useGlobalContext } from "../context";
+import { TextField } from "@material-ui/core";
 
 const SingleWorker = () => {
+  const { fetchSingleData, funcionario, showExtra, api } = useGlobalContext();
+  const { id } = useParams();
+  const history = useHistory();
+
+  const { nome, email, data_nascimento, data_admissao, setor, cargo, nivel } =
+    funcionario;
+
+  const [name, setName] = useState("");
+
+  useEffect(() => {
+    setName(nome);
+  }, []);
+
+  function deleteWorkerData() {
+    api.delete(`/funcionarios/${id}`);
+    history.push("/starter");
+  }
+
+  useEffect(() => {
+    fetchSingleData(id);
+  }, [id]);
+
+  useEffect(() => {
+    showExtra();
+  }, []);
+
+  async function updateHandler(id) {
+    const data = {
+      nome: name,
+    };
+    const newData = await api.put(`/funcionarios/${id}`, { data });
+    console.log(newData);
+    history.push("/starter");
+  }
+
   return (
     <Wrapper>
       <h2>Dados do Funcionário</h2>
@@ -11,43 +49,51 @@ const SingleWorker = () => {
       </div>
       <hr />
       <div>
-        <span>nome:</span>
-        <h4>Jonas</h4>
+        <TextField
+          required
+          label="Nome Completo"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          variant="filled"
+        ></TextField>
       </div>
       <div>
         <span>E-mail:</span>
-        <h4>joninha@empresa.com</h4>
+        <h4>{email}</h4>
       </div>
       <div>
         <span>Data de Nascimento : </span>
-        <h4>24/12/1992</h4>
+        <h4>{data_nascimento}</h4>
       </div>
       <div>
         <span>Data de Admissão : </span>
-        <h4>24/01/2017</h4>
+        <h4>{data_admissao}</h4>
       </div>
       <div>
         <span>setor:</span>
-        <h4>Vendas</h4>
+        <h4>{setor}</h4>
       </div>
       <div>
         <span>cargo:</span>
-        <h4>Diretor</h4>
+        <h4>{cargo}</h4>
       </div>
       <div>
         <span>nível:</span>
-        <h4>Senior</h4>
+        <h4>{nivel}</h4>
       </div>
       <div>
         <button
-          type="submit"
+          type="button"
           className="primary-btn primary-btn-2 grow sgl-worker-btn"
+          onClick={() => deleteWorkerData()}
         >
           Deletar
         </button>
+
         <button
-          type="submit"
+          type="button"
           className="primary-btn primary-btn-2 grow sgl-worker-btn second-btn"
+          onClick={() => updateHandler()}
         >
           Atualizar
         </button>

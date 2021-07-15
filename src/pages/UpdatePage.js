@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+/* import React, { useEffect, useContext, useState } from "react";
 import {
   TextField,
   Box,
@@ -12,6 +12,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import { useGlobalContext } from "../context";
 import moment from "moment";
+import { Loading } from "../components";
 
 const useStyles = makeStyles((theme) => ({
   textField: {
@@ -45,18 +46,32 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const NewWorker = () => {
+const UpdatePage = () => {
   const classes = useStyles();
-  const { api, showExtra } = useGlobalContext();
+  const { api, showExtra, funcionario, is_loading, fetchSingleData } =
+    useGlobalContext();
+
+  const { nome, email, data_nascimento, data_admissao, setor, cargo, nivel } =
+    funcionario;
+
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [workerEmail, setWorkerEmail] = useState("");
   const [birth, setBirth] = useState("");
   const [hiring, setHiring] = useState("");
   const [sector, setSector] = useState("");
   const [position, setPosition] = useState("");
   const [level, setLevel] = useState("");
 
-  console.log(name, email, hiring, birth, sector, position, level);
+  function fieldFiller() {
+    setName(nome);
+    setWorkerEmail(email);
+    setBirth(data_nascimento);
+    setHiring(data_admissao);
+    setSector(setor);
+    setPosition(cargo);
+    setLevel(nivel);
+  }
+
   const now = moment().format("MM/DD/YYYY HH:mm", "pt");
 
   const handleRadioSector = (e) => {
@@ -86,7 +101,7 @@ const NewWorker = () => {
     );
   }
 
-  async function submitHandler() {
+  async function updateHandler() {
     const data = {
       nome: name,
       email: email,
@@ -97,17 +112,22 @@ const NewWorker = () => {
       nivel: level,
       audit_data_insert: now,
     };
-    const newData = await api.post("funcionarios", data);
+    const newData = await api.put("funcionarios" / { id }, data);
     console.log(newData);
   }
 
   useEffect(() => {
     showExtra();
-  }, []);
+    fieldFiller();
+  }, [is_loading]);
+
+  if (is_loading) {
+    return <Loading />;
+  }
 
   return (
     <Wrapper className="center-att">
-      <form className="form-container" onSubmit={submitHandler}>
+      <form className="form-container" onSubmit={updateHandler}>
         <div>
           <h3>Cadastrar Novo Funcionário</h3>
         </div>
@@ -128,9 +148,9 @@ const NewWorker = () => {
             label="e-mail"
             className={classes.textField}
             type="email"
-            value={email}
+            value={workerEmail}
             variant="filled"
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) => setWorkerEmail(e.target.value)}
           ></TextField>
         </div>
 
@@ -177,22 +197,26 @@ const NewWorker = () => {
               onChange={handleRadioSector}
             >
               <FormControlLabel
+                className={setor == "Engenharia" ? "current-answer" : null}
                 value="Engenharia"
                 control={<StyledRadio />}
                 label="Engenharia"
               />
               <FormControlLabel
+                className={setor == "Compras" ? "current-answer" : null}
                 value="Compras"
                 control={<StyledRadio />}
                 label="Compras"
               />
               <FormControlLabel
+                className={setor == "Vendas" ? "current-answer" : null}
                 value="Vendas"
                 control={<StyledRadio />}
                 label="Vendas"
               />
               <FormControlLabel
                 value="Financeiro"
+                className={setor == "Financeiro" ? "current-answer" : null}
                 control={<StyledRadio />}
                 label="Financeiro"
               />
@@ -213,21 +237,25 @@ const NewWorker = () => {
               onChange={handleRadioPosition}
             >
               <FormControlLabel
+                className={position == "Auxiliar" ? "current-answer" : null}
                 value="Auxiliar"
                 control={<StyledRadio />}
                 label="Auxiliar"
               />
               <FormControlLabel
+                className={position == "Técnico" ? "current-answer" : null}
                 value="Técnico"
                 control={<StyledRadio />}
                 label="Técnico"
               />
               <FormControlLabel
+                className={position == "Engenheiro" ? "current-answer" : null}
                 value="Engenheiro"
                 control={<StyledRadio />}
                 label="Engenheiro"
               />
               <FormControlLabel
+                className={position == "Diretor" ? "current-answer" : null}
                 value="Diretor"
                 control={<StyledRadio />}
                 label="Diretor"
@@ -249,22 +277,26 @@ const NewWorker = () => {
               onChange={handleRadioLevel}
             >
               <FormControlLabel
+                className={nivel == "Junior" ? "current-answer" : null}
                 value="Junior"
                 control={<StyledRadio />}
                 label="Junior"
               />
               <FormControlLabel
                 value="Pleno"
+                className={nivel == "Pleno" ? "current-answer" : null}
                 control={<StyledRadio />}
                 label="Pleno"
               />
               <FormControlLabel
+                className={nivel == "Senior" ? "current-answer" : null}
                 value="Senior"
                 control={<StyledRadio />}
                 label="Senior"
               />
               <FormControlLabel
                 value="Estagiário"
+                className={nivel == "Estagiário" ? "current-answer" : null}
                 control={<StyledRadio />}
                 label="Estagiário"
               />
@@ -318,7 +350,11 @@ const Wrapper = styled.section`
     6px 5px 10px rgba(51, 138, 255, 0.45);
     font-size: 20px;
 }
+.current-answer {
+    color: var(--green-dark);
+}
   }
 `;
 
-export default NewWorker;
+export default UpdatePage;
+ */

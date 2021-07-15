@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useReducer } from "react";
-import { Home, NewWorker, SingleWorker, Workers } from "./pages";
+import { Home, NewWorker, SingleWorker, Workers, UpdatePage } from "./pages";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Loading, IconSideBar, SideMenu, Starter } from "./components";
 import { useGlobalContext } from "./context";
@@ -17,12 +17,10 @@ function App() {
           <Route exact path="/newworker">
             <NewWorker />
           </Route>
-          <Route exact path="/singleworker">
-            <SingleWorker />
-          </Route>
           <Route exact path="/workers">
             <Workers />
           </Route>
+          <Route exact path="/workers/:id" children={<SingleWorker />} />
           <Route exact path="/starter">
             <Starter />
           </Route>

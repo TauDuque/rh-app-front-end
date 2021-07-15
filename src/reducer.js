@@ -27,19 +27,21 @@ const reducer = (state, action) => {
   }
 
   if (action.type === GET_DATA_START) {
-    return state;
+    return { ...state, is_loading: true };
   }
 
   if (action.type === GET_DATA_SUCCESS) {
-    return { ...state, funcionarios: action.payload };
+    return { ...state, is_loading: false, funcionarios: action.payload };
   }
 
   if (action.type === GET_SINGLE_DATA_START) {
-    return state;
+    return { ...state, is_loading: true };
   }
 
   if (action.type === GET_SINGLE_DATA_SUCCESS) {
-    return { ...state, funcionario: action.payload };
+    const { id, cadastro } = action.payload;
+    const data = cadastro.find((item) => item.id == id);
+    return { ...state, is_loading: false, funcionario: data };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);

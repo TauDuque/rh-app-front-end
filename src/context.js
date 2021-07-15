@@ -17,7 +17,7 @@ const initialState = {
   is_loading: false,
   extra_menus: false,
   funcionarios: [],
-  funcionario: {},
+  funcionario: [],
 };
 
 const AppContext = React.createContext();
@@ -56,12 +56,12 @@ const AppProvider = ({ children }) => {
     }
   };
 
-  const fetchSingleData = async () => {
+  const fetchSingleData = async (id) => {
     dispatch({ type: GET_SINGLE_DATA_START });
     try {
       const response = await api.get("funcionarios");
-      const funcionario = await response.data;
-      dispatch({ type: GET_SINGLE_DATA_SUCCESS, payload: funcionario });
+      const cadastro = await response.data;
+      dispatch({ type: GET_SINGLE_DATA_SUCCESS, payload: { cadastro, id } });
     } catch (error) {
       console.log("error");
     }
@@ -79,7 +79,9 @@ const AppProvider = ({ children }) => {
         hideExtra,
         hideLoading,
         showLoading,
+        fetchData,
         fetchSingleData,
+        api,
       }}
     >
       {children}

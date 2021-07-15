@@ -18,9 +18,9 @@ const SideMenu = () => {
         <Link to="/workers" className="grow">
           <li>Visualizar Cadastros</li>
         </Link>
-        <Link to="singleworker" className="grow">
+        {/* <Link to={`/workers/${id}`} className="grow">
           <li>Visualizar Último Cadastro</li>
-        </Link>
+        </Link> */}
         <Link to="/" onClick={hideExtra} className="grow">
           <li>Sair</li>
         </Link>
