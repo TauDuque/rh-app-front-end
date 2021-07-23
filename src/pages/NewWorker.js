@@ -88,7 +88,7 @@ const NewWorker = () => {
     );
   }
 
-  async function submitHandler(e) {
+  function submitHandler(e) {
     e.preventDefault();
     const data = {
       nome: name,
@@ -100,7 +100,7 @@ const NewWorker = () => {
       nivel: level,
       audit_data_insert: now,
     };
-    const newData = await api.post("funcionarios", data);
+    const newData = api.post("funcionarios", data);
     history.push("/workers");
   }
 
