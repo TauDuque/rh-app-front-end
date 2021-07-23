@@ -88,7 +88,7 @@ const NewWorker = () => {
     );
   }
 
-  function submitHandler(e) {
+  async function submitHandler(e) {
     try {
       e.preventDefault();
       const data = {
@@ -101,7 +101,7 @@ const NewWorker = () => {
         nivel: level,
         audit_data_insert: now,
       };
-      const newData = api.post("funcionarios", data);
+      const newData = await api.post("funcionarios", data);
       history.push("/workers");
     } catch (err) {
       console.log(err);

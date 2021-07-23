@@ -45,7 +45,6 @@ const AppProvider = ({ children }) => {
     baseURL: "https://back-end-rh-app.herokuapp.com/",
   });
 
-  console.log(api);
   const fetchData = async () => {
     dispatch({ type: GET_DATA_START });
     try {

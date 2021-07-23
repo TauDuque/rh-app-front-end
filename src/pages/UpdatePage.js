@@ -111,20 +111,24 @@ const UpdatePage = () => {
   }
 
   async function updateHandler(e) {
-    e.preventDefault();
-    const data = {
-      id: id,
-      nome: name,
-      email: email,
-      data_nascimento: birth,
-      data_admissao: hiring,
-      setor: sector,
-      cargo: position,
-      nivel: level,
-      audit_data_update: now,
-    };
-    const newData = await api.put("funcionarios", data);
-    history.push(`/workers/${id}`);
+    try {
+      e.preventDefault();
+      const data = {
+        id: id,
+        nome: name,
+        email: email,
+        data_nascimento: birth,
+        data_admissao: hiring,
+        setor: sector,
+        cargo: position,
+        nivel: level,
+        audit_data_update: now,
+      };
+      const newData = await api.put("funcionarios", data);
+      history.push(`/workers/${id}`);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {
