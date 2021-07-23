@@ -89,19 +89,23 @@ const NewWorker = () => {
   }
 
   function submitHandler(e) {
-    e.preventDefault();
-    const data = {
-      nome: name,
-      email: email,
-      data_nascimento: birth,
-      data_admissao: hiring,
-      setor: sector,
-      cargo: position,
-      nivel: level,
-      audit_data_insert: now,
-    };
-    const newData = api.post("funcionarios", data);
-    history.push("/workers");
+    try {
+      e.preventDefault();
+      const data = {
+        nome: name,
+        email: email,
+        data_nascimento: birth,
+        data_admissao: hiring,
+        setor: sector,
+        cargo: position,
+        nivel: level,
+        audit_data_insert: now,
+      };
+      const newData = api.post("funcionarios", data);
+      history.push("/workers");
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   useEffect(() => {
