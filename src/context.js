@@ -2,7 +2,6 @@ import React, { useEffect, useContext, useReducer } from "react";
 import reducer from "./reducer";
 import axios from "axios";
 
-
 import {
   SHOW_LOADING,
   HIDE_LOADING,
@@ -43,9 +42,10 @@ const AppProvider = ({ children }) => {
   };
 
   const api = axios.create({
-    baseURL: "http://localhost:6060",
+    baseURL: "https://back-end-rh-app.herokuapp.com/",
   });
 
+  console.log(api);
   const fetchData = async () => {
     dispatch({ type: GET_DATA_START });
     try {

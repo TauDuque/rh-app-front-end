@@ -28,8 +28,7 @@ const Workers = () => {
       setPage(funcionarios.length - 1);
     } else setPage(page - 1);
   }
-  console.log(page);
-  console.log(funcionarios.length);
+
   return (
     <Wrapper>
       <div className="mobile-links">
