@@ -1,11 +1,17 @@
 import React, { useEffect, useContext, useReducer } from "react";
 import { Home, NewWorker, SingleWorker, Workers, UpdatePage } from "./pages";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  useHistory,
+} from "react-router-dom";
 import { Loading, IconSideBar, SideMenu, Starter } from "./components";
 import { useGlobalContext } from "./context";
 
 function App() {
   const { extra_menus } = useGlobalContext();
+  const history = useHistory();
   return (
     <div className="main-container">
       <Router>
@@ -26,6 +32,9 @@ function App() {
           </Route>
           <Route exact path="/updatepage">
             <UpdatePage />
+          </Route>
+          <Route exact path="/*">
+            history.push("/")
           </Route>
         </Switch>
         {extra_menus && <IconSideBar />}
