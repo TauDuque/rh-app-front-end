@@ -33,9 +33,6 @@ function App() {
           <Route exact path="/updatepage">
             <UpdatePage />
           </Route>
-          <Route exact path="/*">
-            history.push("/")
-          </Route>
         </Switch>
         {extra_menus && <IconSideBar />}
       </Router>
