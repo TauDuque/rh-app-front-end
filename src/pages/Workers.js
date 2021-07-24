@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context";
 import moment from "moment";
 import { BiLeftArrowAlt, BiRightArrowAlt } from "react-icons/bi";
-import { MobileLinks, Loading, paginate } from "../components";
+import { MobileLinks, Loading } from "../components";
 
 const Workers = () => {
-  const { funcionarios, showExtra, fetchData, hideExtra } = useGlobalContext();
+  const { funcionarios, showExtra, fetchData } = useGlobalContext();
   const [page, setPage] = useState(0);
 
   useEffect(() => {
@@ -34,75 +34,77 @@ const Workers = () => {
       <div className="mobile-links">
         <MobileLinks />
       </div>
-      <table>
-        <thead>
-          <tr className="table-headers">
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Nascimento</th>
-            <th>Admissão</th>
-            <th>Setor</th>
-            <th>Cargo</th>
-            <th>Nível</th>
-            <th>Data Insert</th>
-            <th>Data Update</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data ? (
-            data.map((item, index) => {
-              const {
-                id,
-                nome,
-                email,
-                data_nascimento,
-                data_admissao,
-                setor,
-                cargo,
-                nivel,
-                audit_data_insert,
-                audit_data_update,
-              } = item;
-              return (
-                <tr key={index}>
-                  <td>
-                    <Link to={`/workers/${id}`}>{nome}</Link>
-                  </td>
-                  <td>
-                    <Link to={`/workers/${id}`}>{email}</Link>
-                  </td>
-                  <td>
-                    <Link to={`/workers/${id}`}>{data_nascimento}</Link>
-                  </td>
-                  <td>
-                    <Link to={`/workers/${id}`}>{data_admissao}</Link>
-                  </td>
-                  <td>
-                    <Link to={`/workers/${id}`}>{setor}</Link>
-                  </td>
-                  <td>
-                    <Link to={`/workers/${id}`}>{cargo}</Link>
-                  </td>
-                  <td>
-                    <Link to={`/workers/${id}`}>{nivel}</Link>
-                  </td>
-                  <td>
-                    <Link to={`/workers/${id}`}>{audit_data_insert}</Link>
-                  </td>
-                  <td>
-                    <Link to={`/workers/${id}`}>
-                      {audit_data_update &&
-                        moment(audit_data_update).format("MM/DD/YYYY HH:mm")}
-                    </Link>
-                  </td>
-                </tr>
-              );
-            })
-          ) : (
-            <Loading />
-          )}
-        </tbody>
-      </table>
+      <div className="table-height">
+        <table>
+          <thead>
+            <tr className="table-headers">
+              <th>Nome</th>
+              <th>E-mail</th>
+              <th>Nascimento</th>
+              <th>Admissão</th>
+              <th>Setor</th>
+              <th>Cargo</th>
+              <th>Nível</th>
+              <th>Data Insert</th>
+              <th>Data Update</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data ? (
+              data.map((item, index) => {
+                const {
+                  id,
+                  nome,
+                  email,
+                  data_nascimento,
+                  data_admissao,
+                  setor,
+                  cargo,
+                  nivel,
+                  audit_data_insert,
+                  audit_data_update,
+                } = item;
+                return (
+                  <tr key={index}>
+                    <td>
+                      <Link to={`/workers/${id}`}>{nome}</Link>
+                    </td>
+                    <td>
+                      <Link to={`/workers/${id}`}>{email}</Link>
+                    </td>
+                    <td>
+                      <Link to={`/workers/${id}`}>{data_nascimento}</Link>
+                    </td>
+                    <td>
+                      <Link to={`/workers/${id}`}>{data_admissao}</Link>
+                    </td>
+                    <td>
+                      <Link to={`/workers/${id}`}>{setor}</Link>
+                    </td>
+                    <td>
+                      <Link to={`/workers/${id}`}>{cargo}</Link>
+                    </td>
+                    <td>
+                      <Link to={`/workers/${id}`}>{nivel}</Link>
+                    </td>
+                    <td>
+                      <Link to={`/workers/${id}`}>{audit_data_insert}</Link>
+                    </td>
+                    <td>
+                      <Link to={`/workers/${id}`}>
+                        {audit_data_update &&
+                          moment(audit_data_update).format("MM/DD/YYYY HH:mm")}
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })
+            ) : (
+              <Loading />
+            )}
+          </tbody>
+        </table>
+      </div>
       <div className="page-btn-container">
         <button className="page-btn" type="button" onClick={() => goBack()}>
           <BiLeftArrowAlt />
@@ -118,7 +120,9 @@ const Workers = () => {
 const Wrapper = styled.section`
   height: 100%;
   display: flex;
-    flex-direction: column;
+  background: rgb(230,227,227);
+  background: linear-gradient(138deg, rgba(230,227,227,1) 0%, rgba(232,232,232,1) 50%, rgba(248,243,255,1)100%);
+  flex-direction: column;
   border-radius: 2px;
   table {
     width: 100%;
@@ -140,8 +144,10 @@ const Wrapper = styled.section`
     padding: 10px;
   }
   table {
-    min-height: 895px;
     margin-bottom: 10px;
+  }
+  .table-height {
+    min-height: 495px;
   }
 
   .table-headers th {
@@ -154,9 +160,9 @@ const Wrapper = styled.section`
   }
 
   table td {
-    font-size: 10px;
+    font-size: 12px;
     text-align: center;
-    padding: 7px;
+    padding: 11px;
     border: 1px solid;
     background: var(--clr-grey-2);
     border-collapse: collapse;
@@ -190,18 +196,16 @@ const Wrapper = styled.section`
   }
 
   @media (min-width: 992px) {
-    background: transparent;
+    background: rgb(230,227,227);
+    background: linear-gradient(138deg, rgba(230,227,227,1) 0%, rgba(232,232,232,1) 50%, rgba(248,243,255,1) 100%);
     display: flex;
     flex-direction: column;
+    padding: 5px;
     justify-content: center;
     align-items: flex-start;
-    height: 90%;
+    height: 85%;
     width: 65%;
     margin-left: 15px;
-    table {
-      min-height: 495px;
-      
-    }
     .mobile-links {
       display: none;
     }

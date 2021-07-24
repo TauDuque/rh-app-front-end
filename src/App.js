@@ -1,17 +1,11 @@
-import React, { useEffect, useContext, useReducer } from "react";
+import React from "react";
 import { Home, NewWorker, SingleWorker, Workers, UpdatePage } from "./pages";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { Loading, IconSideBar, SideMenu, Starter } from "./components";
 import { useGlobalContext } from "./context";
 
 function App() {
   const { extra_menus } = useGlobalContext();
-  const history = useHistory();
   return (
     <div className="main-container">
       <Router>

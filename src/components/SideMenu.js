@@ -39,8 +39,9 @@ const Wrapper = styled.section`
     var(--clr-grey-2)
   );
   border-radius: 8px;
-  box-shadow: 0 7px 19px rgba(255, 166, 61, 0.35),
-    0 14px 35px rgba(255, 61, 119, 0.14), 10px 6px 28px rgba(51, 138, 255, 0.15);
+  box-shadow: 0 0px 1px rgba(255, 166, 61, 0.35),
+    0 0px 8px rgb(255 166 61 / 35%), 0 2px 10px rgb(255 61 119 / 14%),
+    2px 4px 3px rgb(51 138 255 / 15%);
   padding-top: 40px;
   margin-left: 15px;
   a {
