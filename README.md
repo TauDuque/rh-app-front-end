@@ -37,6 +37,6 @@ Live Demo: https://rh-react.netlify.app/
 <img src="https://github.com/TauDuque/rh-app-front-end/blob/main/gifs/z0TekU4zuT.gif" height="400px" width="650"/><br/>
 
 #### Algumas imagens do banco de dados no mySQL Workbench: <br/>
-<img src="https://github.com/TauDuque/rh-app-front-end/blob/main/gifs/z0TekU4zuT.gif" height="400px" width="650"/><br/>
+<img src="https://github.com/TauDuque/rh-app-front-end/blob/main/gifs/database_ac.gif" height="400px" width="650"/><br/>
 
 Live Demo: https://rh-react.netlify.app/
