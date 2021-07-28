@@ -5,6 +5,8 @@
 
 <img src="https://github.com/TauDuque/rh-app-front-end/blob/main/gifs/rh-inicial.gif" height="400px" width="650"/><br/>
 
+Live Demo: https://rh-react.netlify.app/
+
 ## Stack:
 #### Front-End
 <ul>
@@ -36,3 +38,5 @@
 
 #### Algumas imagens do banco de dados no mySQL Workbench: <br/>
 <img src="https://github.com/TauDuque/rh-app-front-end/blob/main/gifs/z0TekU4zuT.gif" height="400px" width="650"/><br/>
+
+Live Demo: https://rh-react.netlify.app/
